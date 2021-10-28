@@ -1,0 +1,25 @@
+{
+  "name": "practica-sass",
+  "version": "1.0.0",
+  "description": "This is a sass practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmembrenoh23/SassPractice.git"
+  },
+  "keywords": [
+    "sass",
+    "html",
+    "design",
+    "css"
+  ],
+  "author": "Maria Membreño",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmembrenoh23/SassPractice/issues"
+  },
+  "homepage": "https://github.com/mmembrenoh23/SassPractice#readme"
+}
