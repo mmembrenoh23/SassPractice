@@ -1,4 +1,4 @@
-#SASS PRACTICE
+# SASS PRACTICE
 ## This is my first Sass practice
 -Installing
 -make variables
