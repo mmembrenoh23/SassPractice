@@ -1,2 +1,20 @@
-/* It can also contain interpolation:
-   1 + 1 = #{1 + 1}
+@use 'imports/variables'
+
+@use 'components/_commons'
+@use 'components/_cards'
+
+
+.header
+   width:100%
+   .nav-menu
+      padding:20px
+      background-color: variables.$primary_color
+      color: variables.$third_color
+      .nav-item
+         color: variables.$third_color
+         padding:20px
+         text-decoration: none
+         text-transform: uppercase
+         &:hover
+            background-color: variables.$fourth_color
+            color: variables.$primary_color 

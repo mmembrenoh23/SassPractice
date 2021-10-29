@@ -1,0 +1,26 @@
+@use '../imports/_variables'
+    
+.card-wrap
+    margin: 10px 0   
+    .card
+        width: 24.3%
+        float: left
+        margin: 0 5px 10px  
+        border: 1px solid rgba(variables.$dark_opacity, 0.4)
+        border-radius: 5px
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        .card-header
+            border-bottom:1px solid rgba(variables.$dark_opacity, 0.4)
+            .card-image
+                background-image: url('../images/background.jpg')
+                background-size: cover
+                background-repeat: no-repeat
+                height: 200px
+        .card-body
+            padding:10px
+        .card-title
+            font-size: 28px
+            line-height: 1.8
+        .card-text
+            font-size: 12px
+            line-height: 1.4
