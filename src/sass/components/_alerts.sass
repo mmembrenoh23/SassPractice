@@ -1,0 +1,25 @@
+@use '../imports/_variables' as vars
+@import '../imports/_functions' 
+
+@mixin alerts($name,$map ,$darkness: false)
+    &-#{$name}
+        background: changeColor($name,mixcolor,8, #000)
+        border: 1px solid darknessColor($name, nth($map, 1))
+        @if ($darkness)
+            color: darknessColor($name, nth($map, 2 ))
+        @else 
+            color: lightenColor($name, nth($map, 2 ))
+        text-shadow: 1px 2px lightenColor($name, nth($map, 3 )) 
+
+.alerts
+    padding: 10px
+    width: calc(100% - 1rem - 30px)
+    margin: 0.5rem
+    border-radius: 5px
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-size: 1.2rem
+    text-shadow: 1px 2px rgba(vars.$base_color, 0.2)
+    @include alerts('success',(5, 20, 15), true)
+    @include alerts('danger',(15, 50, 15), true)
+    
+    

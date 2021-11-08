@@ -11,8 +11,22 @@
 body 
    background-color: variables.$dark_opacity2
 h1
-   color: variables.$primary_color
+   color: map-get(variables.$palettes, 'primary')
    font-size: variables.$h1Weight
 
 h2
    font-size: variables.$h2Weight
+
+ul
+   list-style: none
+   padding: 0
+   width: 100%
+   li
+      width: 100%
+      a
+         display: block
+         text-decoration: none
+         &:active
+            text-decoration: none
+         i
+            margin-right: 16px

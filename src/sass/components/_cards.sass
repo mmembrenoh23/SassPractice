@@ -1,21 +1,31 @@
 @use '../imports/_variables'
+@import '../imports/_functions'
+    
+@mixin card($w, $f, $m, $b, $br, $p:0)
+    width: $w
+    float: $f
+    margin: $m
+    border: $b
+    padding: $p
+    border-radius: $br
+    font-family: variables.$font-famyly
+    
     
 .card-wrap
-    margin: 10px 0   
+    margin: 10px 0  
+    &:after
+        clear: both
+        display: table
+        content: ""          
     .card
-        width: 24.3%
-        float: left
-        margin: 0 5px 10px  
-        border: 1px solid rgba(variables.$dark_opacity, 0.4)
-        border-radius: 5px
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        @include card(24.3% , left ,0 5px 10px,  1px solid rgba(variables.$dark_opacity, 0.4),5px )
         .card-header
             border-bottom:1px solid rgba(variables.$dark_opacity, 0.4)
             .card-image
                 background-image: url('../images/background.jpg')
                 background-size: cover
                 background-repeat: no-repeat
-                height: 200px
+                height: 150px
         .card-body
             padding:10px
         .card-title
@@ -24,3 +34,7 @@
         .card-text
             font-size: 12px
             line-height: 1.4
+
+.MyTarjetas
+    @include card(24.3% , left ,20px 5px,  1px solid rgba(variables.$dark_opacity, 0.4),5px, 10px )
+    height: scales(400,150)+px

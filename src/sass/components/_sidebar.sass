@@ -1,0 +1,99 @@
+@import '../imports/_functions'
+$menu-width: 300px
+@keyframes display_fadeIn
+    0%
+        opacity: 0
+        overflow: hidden
+    100%
+        display: block
+        overflow: visible
+@keyframes display_fadeOut
+    0%
+       display: block
+       overflow: visible
+    100%
+        display: none
+        overflow: hidden
+        
+
+@mixin generarMenu ($l: 3)
+    $base: 'ul>li'
+    $root:''
+    @for $var from 1 through $l + 1
+         $root: #{$root} #{$base}
+         #{$root}
+             margin-left: ($var - 1) * 50px
+             position: relative             
+             > ul
+                 display: none
+                 overflow: hidden
+                 animation: display_fadeOut 1s
+             
+             &:hover > ul
+               display: block
+               overflow: visible
+               animation: display_fadeIn 1s
+            
+             a
+               @extend %level#{$var}
+
+%level1 
+    font-size: 20px
+    padding: 20px 0
+    font-weight: 500
+    span, i
+        color: lightenColor1('primary', 90)
+    
+    &:hover
+        box-shadow: 0px 0px 8px -4px lightenColor1('primary', 60)
+        border-radius: 10px 0 0 10px
+        padding-left: 20px
+        cursor: pointer
+        span, i
+            color: colors1('secondary')
+%level2 
+    padding-left: 20px
+    background:  darknessColor1('primary', 5)
+    padding: 15px 0 15px 10px
+    span, i            
+        font-size: 15px
+    &:hover
+        box-shadow: 0px 0px 8px 0px darknessColor1('primary', 5)
+        border-radius: 0 50px 50px 0
+        background: lightenColor1('primary', 60)
+        span, i           
+           color:  darknessColor1('primary', 5)
+           font-weight: 700           
+           text-transform: uppercase
+%level3  
+    padding-left: 20px
+    background:  darknessColor1('primary', 5)
+    padding: 15px 0 15px 10px 
+    span, i            
+        font-size: 15px
+    &:hover
+        color: colors1('secondary')
+main
+    width: calc(100% - $menu-width)
+    margin-left: $menu-width
+
+nav.menu
+    width: $menu-width
+    height: 100vh
+    position: fixed
+    top: 0
+    left: 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background: colors1('primary')
+    .menu-links
+        width: 90%
+        margin-left: 10%
+        min-height: 500px
+        display: flex
+        align-items: center
+    
+    
+@include generarMenu(2)

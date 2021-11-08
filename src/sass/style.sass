@@ -1,20 +1,27 @@
 @use 'imports/variables'
 
 @use 'components/_commons'
+@use 'components/_sidebar' 
 @use 'components/_cards'
+@use 'components/_button'
+@use 'components/_alerts'
+@use 'components/_titles'
+@use 'components/_table' 
+@use 'components/_cols' 
+@use 'components/_toast' 
 
 
 .header
    width:100%
    .nav-menu
       padding:20px
-      background-color: variables.$primary_color
-      color: variables.$third_color
+      background-color: map-get(variables.$palettes, 'primary')
+      color: map-get(variables.$palettes, 'third')
       .nav-item
-         color: variables.$third_color
+         color: map-get(variables.$palettes, 'third')
          padding:20px
          text-decoration: none
          text-transform: uppercase
          &:hover
-            background-color: variables.$fourth_color
-            color: variables.$primary_color 
+            background-color: map-get(variables.$palettes, 'third')
+            color: map-get(variables.$palettes, 'primary')

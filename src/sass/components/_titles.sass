@@ -1,0 +1,6 @@
+@use "../imports/_variables" as vars
+    
+@each $name, $size, $weight in vars.$titles_sizes
+     .title-#{$name}
+         font-size: $size
+         font-weight: $weight

@@ -1,0 +1,104 @@
+@use '../imports/variables'
+
+%btn
+    height: 40px
+    min-width: 100px
+    border: none
+    border-radius: 5px
+    color: variables.$white_color
+    margin:
+        top:5px
+        bottom:5px
+    box-shadow: 2px 1px rgba(variables.$base_color,0.2)
+    cursor: pointer
+    text-align: center
+    padding:
+        left:15px
+        right:15px
+
+@mixin button1($name, $color)
+    .btn-outline-#{$name}
+        color: $color
+        border: 1px solid $color
+        &:hover
+            background-color:$color
+            color: variables.$white_color
+
+@mixin button2($name, $color)
+    &-#{$name}
+        color: $color
+        border: 1px solid $color
+        &:hover
+            background-color: darken($color,4% )
+            color: variables.$white_color
+    
+
+@mixin button3($name, $color)
+    &#{$name}
+        background-color: rgba($color,0.6)
+        &:hover
+            background-color: $color
+
+.btn-
+    &primary, &danger, &success
+        @extend %btn
+    @include button3('primary', map-get(variables.$palettes, 'primary'))
+    /*&primary 
+        background-color: rgba(variables.$primary_color,0.6)
+        &:hover
+            background-color: variables.$primary_color*/
+    &danger
+        background-color: rgba(321,47,16,0.6)
+        &:hover
+            background-color: rgb(321,47,16)
+    &success
+        background-color: rgba(40,192,40,0.6)
+        &:hover
+            background-color: #28c028
+
+.btn-outline
+    @extend %btn
+    background-color: transparent
+
+    @each $name, $color in variables.$palettes
+          @include button2($name, $color)
+
+    /* @include button2('primary', variables.$primary_color )
+     * @include button2('secondary', variables.$secondary_color)
+     *@include button2('third', variables.$third_color)
+     *@include button2('fourth', variables.$fourth_color)*/
+    
+    /* &-primary
+        color: variables.$primary_color
+        border: 1px solid variables.$primary_color
+        &:hover
+            background-color: variables.$primary_color
+            color: variables.$white_color*/
+    
+    /*&-secondary
+        color: variables.$secondary_color
+        border: 1px solid variables.$secondary_color
+        &:hover
+            background-color: variables.$secondary_color
+            color: variables.$white_color*/
+
+    /*  &-third
+        color: variables.$third_color
+        border: 1px solid variables.$third_color
+        &:hover
+            background-color: variables.$third_color
+            color: variables.$white_color*/
+
+    /*&-fourth
+        color: variables.$fourth_color
+        border: 1px solid variables.$fourth_color
+        &:hover
+            background-color: variables.$fourth_color
+            color: variables.$white_color*/
+    /* @include button1('primary', variables.$primary_color)*/
+    /* @include button1('secondary', variables.$secondary_color)*/
+    /* @include button1('third', variables.$third_color)*/
+    /* @include button1('fourth', variables.$fourth_color)*/
+
+
+

@@ -1,0 +1,60 @@
+@use "sass:math"
+@use './_variables' as vars
+
+
+@function colors($color)
+    @return  map-get(vars.$alerts, $color)
+
+@function lightenColor($color, $amount)
+    @return lighten(map-get(vars.$alerts, $color ), $amount)
+
+@function darknessColor($color, $amount)
+    @return darken(map-get(vars.$alerts, $color ), $amount)
+
+@function changeColor($name, $type:darken, $amount: 1, $colorMix: vars.$white_color)
+    $color: colors($name)
+    @if ($type == darken)
+        $color: darken( $color, $amount )
+    @else if ($type == lighten)
+        $color: lighten( $color, $amount )
+    @else if ($type == mixcolor)
+        $findColor: colors($colorMix)
+        @if ($findColor)
+            $colorMix: $findColor
+        $color: mix($color, $colorMix)
+    @else 
+        $color: rgba($color, $amount)
+
+    @return $color
+
+
+@function colors1($color)
+    @return  map-get(vars.$palettes, $color)
+
+@function lightenColor1($color, $amount)
+    @return lighten(map-get(vars.$palettes, $color ), $amount)
+
+@function darknessColor1($color, $amount)
+    @return darken(map-get(vars.$palettes, $color ), $amount)
+
+@function changeColor1($name, $type:darken, $amount: 1, $colorMix: vars.$white_color)
+    $color: colors1($name)
+    @if ($type == darken)
+        $color: darken( $color, $amount )
+    @else if ($type == lighten)
+        $color: lighten( $color, $amount )
+    @else if ($type == mixcolor)
+        $findColor: colors1($colorMix)
+        @if ($findColor)
+            $colorMix: $findColor
+        $color: mix($color, $colorMix)
+    @else 
+        $color: rgba($color, $amount)
+
+    @return $color
+
+@function scales($value, $base, $ratio: 1.5)
+    @while $value > $base
+        $value: math.div($value , $ratio)
+    
+    @return $value;
